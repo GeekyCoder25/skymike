@@ -58,10 +58,15 @@ const Hero = () => {
 					</ul>
 					<div className="hidden lg:flex items-center gap-x-5">
 						<ClipPathIcon />
-						<button className="bg-[#AD46FF] py-2 px-4 rounded-md text-white flex items-center gap-x-2">
+						<a
+							href="https://wa.me/2349073002599?text=Hello Skymate I would like to buy 50 btc"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="bg-[#AD46FF] py-2 px-4 rounded-md text-white flex items-center gap-x-2"
+						>
 							<RocketIcon />
 							Trade now
-						</button>
+						</a>
 					</div>
 				</nav>
 				<div className="w-full flex-1 flex flex-col gap-y-10 justify-center items-center max-w-[800px] mx-auto mt-10 mb-0 lg:my-20 px-5 lg:px-10 text-center">
@@ -75,11 +80,16 @@ const Hero = () => {
 					<p className="text-lg lg:max-w-[500px]">
 						Convert Your Crypto & Gift Cards to Naira in Just 5 Minutes—Fast,
 						Secure, and Hassle-Free!
-					</p>
-					<button className="bg-[#AD46FF] py-2 px-4 rounded-md text-white w-full lg:w-fit flex justify-center items-center gap-x-2">
+					</p>{' '}
+					<a
+						href="https://wa.me/2349073002599?text=Hello Skymate I would like to buy 50 btc"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="bg-[#AD46FF] py-2 px-4 rounded-md text-white flex items-center gap-x-2"
+					>
 						<RocketIcon />
 						Trade now
-					</button>
+					</a>
 				</div>
 				<div
 					className="w-full h-full bg-[url('/hero-bg.svg')] bg-cover"
