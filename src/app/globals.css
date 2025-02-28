@@ -11,6 +11,7 @@
 
 body {
 	font-family: 'DM Sans', serif;
+	scroll-behavior: smooth;
 }
 
 @keyframes spin {

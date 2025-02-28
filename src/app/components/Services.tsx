@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {RefObject} from 'react';
 import HeaderGradient from './HeaderGradient';
 import RocketIcon from '../assets/rocket';
 import Image from 'next/image';
 
-const Services = () => {
+const Services = ({ref}: {ref: RefObject<null>}) => {
 	return (
-		<section id="services" className="bg-[#f0f9ff] px-5">
-			<section className="py-10 lg:py-44 max-w-[1300px] mx-auto">
+		<section id="services" className="bg-[#f0f9ff] px-5" ref={ref}>
+			<section className="py-10 lg:py-36 max-w-[1300px] mx-auto">
 				<HeaderGradient title="Our Services" />
 
 				<div className="flex flex-col lg:flex-row justify-between gap-x-5 gap-y-10 mt-10">
-					<div className="flex-1 flex flex-col gap-y-10 bg-[#DBEAFE] rounded-xl px-5 lg:px-20 pt-10 lg:pt-20">
+					<div
+						className="flex-1 flex flex-col gap-y-5 bg-[#DBEAFE] rounded-xl px-5 lg:px-10 pt-10"
+						data-aos="fade-right"
+					>
 						<h4 className="text-3xl lg:text-5xl">
 							Cryptocurrency trade to Naria
 						</h4>
@@ -34,7 +37,10 @@ const Services = () => {
 							/>
 						</div>
 					</div>
-					<div className="flex-1 flex flex-col gap-y-10  bg-[#F3E8FF] rounded-xl px-5 lg:px-20 pt-10 lg:pt-20">
+					<div
+						className="flex-1 flex flex-col gap-y-5  bg-[#F3E8FF] rounded-xl px-5 lg:px-10 pt-10"
+						data-aos="fade-left"
+					>
 						<h4 className="text-3xl lg:text-5xl">Gift card trade to Naria</h4>
 						<p className="text-lg lg:text-2xl">
 							Exchange your unused gift cards for cash in minutes. Get the best

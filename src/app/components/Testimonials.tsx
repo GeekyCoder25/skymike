@@ -57,36 +57,54 @@ const Testimonials = () => {
 						</span>
 					))}
 				</div>
-				<div className="animate-right-scroll-mobile lg:animate-right-scroll flex gap-x-10 lg:gap-x-5 mt-20">
+				<div className="animate-right-scroll-mobile lg:animate-right-scroll flex gap-x-10 lg:gap-x-10 mt-20">
 					{[1, 2, 3, 4, 5, 6].map(index => (
-						<Image
+						<div
 							key={index}
-							src={`/screenshot${index}.png`}
-							width={500}
-							height={500}
-							alt=""
-							className="h-[600px]"
-						/>
+							className={`${
+								index % 2 ? 'mt-10' : 'mb-10'
+							} bg-[url('/screenshot-bg.svg')] bg-cover min-w-[300px] flex justify-center items-center`}
+						>
+							<Image
+								src={`/screenshot${index}.png`}
+								width={500}
+								height={500}
+								alt=""
+								className="h-[600px]"
+							/>
+						</div>
 					))}
 					{[1, 2, 3, 4, 5, 6].map(index => (
-						<Image
+						<div
 							key={index}
-							src={`/screenshot${index}.png`}
-							width={500}
-							height={500}
-							alt=""
-							className="h-[600px]"
-						/>
+							className={`${
+								index % 2 ? 'mt-10' : 'mb-10'
+							} bg-[url('/screenshot-bg.svg')] bg-cover min-w-[300px] flex justify-center items-center`}
+						>
+							<Image
+								src={`/screenshot${index}.png`}
+								width={500}
+								height={500}
+								alt=""
+								className="h-[600px]"
+							/>
+						</div>
 					))}
 					{[1, 2, 3, 4, 5, 6].map(index => (
-						<Image
+						<div
 							key={index}
-							src={`/screenshot${index}.png`}
-							width={500}
-							height={500}
-							alt=""
-							className="h-[600px]"
-						/>
+							className={`${
+								index % 2 ? 'mt-10' : 'mb-10'
+							} bg-[url('/screenshot-bg.svg')] bg-cover min-w-[300px] flex justify-center items-center`}
+						>
+							<Image
+								src={`/screenshot${index}.png`}
+								width={500}
+								height={500}
+								alt=""
+								className="h-[600px]"
+							/>
+						</div>
 					))}
 				</div>
 			</div>

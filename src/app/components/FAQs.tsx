@@ -1,5 +1,5 @@
 'use client';
-import React, {useState} from 'react';
+import React, {RefObject, useState} from 'react';
 import HeaderGradient from './HeaderGradient';
 
 const faqs = [
@@ -30,16 +30,19 @@ const faqs = [
 	},
 ];
 
-const FAQs = () => {
+const FAQs = ({ref}: {ref: RefObject<null>}) => {
 	const [selected, setSelected] = useState<number | null>(null);
 
 	return (
-		<section id="faqs" className="bg-[#f0f9ff] lg:px-5">
+		<section id="faqs" className="bg-[#f0f9ff] lg:px-5" ref={ref}>
 			<div className="max-w-[1300px] mx-auto">
 				<div className="px-5 lg:px-0">
 					<HeaderGradient title="Frequently asked questions" />
 				</div>
-				<div className="bg-[#EAF3FF] mt-10 py-10 lg:py-20 px-5 lg:px-20 rounded-xl flex flex-col gap-y-5">
+				<div
+					className="bg-[#EAF3FF] mt-10 py-10 lg:py-20 px-5 lg:px-20 rounded-xl flex flex-col gap-y-5"
+					data-aos="fade-up"
+				>
 					{faqs.map((faq, index) => (
 						<div
 							key={index}

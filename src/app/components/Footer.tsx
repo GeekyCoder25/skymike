@@ -7,7 +7,10 @@ import CallIcon from '../assets/call';
 
 const Footer = () => {
 	return (
-		<footer className="bg-[#020618] pt-10 lg:pt-20 mx-auto text-white bg-[url('/footer-bg.svg')] overflow-hidden">
+		<footer
+			className="bg-[#020618] pt-10 lg:pt-20 mx-auto text-white bg-[url('/footer-bg.svg')] bg-cover overflow-hidden"
+			style={{backgroundPosition: '100% 30%'}}
+		>
 			<div className="flex justify-end gap-x-5 max-w-[1300px] mx-auto px-5 pb-3">
 				<Link href={''}>WhatsApp</Link>
 				<Link href={''}>Facebook</Link>
@@ -62,7 +65,7 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-			<h2 className="text-[#45556C] text-[300px] font-black text-center -mt-10">
+			<h2 className="bg-[#45556C]  bg-clip-text text-[300px] font-black text-transparent text-center h-72 -mt-10 bg-[url('/shade.svg')] ">
 				Skymike
 			</h2>
 		</footer>

@@ -1,5 +1,5 @@
 'use client';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {RefObject, useEffect, useRef, useState} from 'react';
 import HeaderGradient from './HeaderGradient';
 import Image from 'next/image';
 
@@ -38,9 +38,16 @@ const carousels: Carousel[] = [
 	},
 ];
 
-const Choose = () => {
+const Choose = ({ref}: {ref: RefObject<null>}) => {
 	const carouselRef = useRef<HTMLDivElement>(null);
+	const scrollContainer = useRef<HTMLDivElement>(null);
 	const [isScrolling, setIsScrolling] = useState(false);
+	const [scrollLevel, setScrollLevel] = useState(0);
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		setIsMobile(window.innerWidth < 1024);
+	}, []);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -82,7 +89,6 @@ const Choose = () => {
 	const handleWheel = (e: React.WheelEvent) => {
 		if (carouselRef.current) {
 			if (isScrolling) {
-				e.preventDefault();
 			}
 			carouselRef.current.scrollBy({top: e.deltaY, behavior: 'auto'});
 		}
@@ -92,38 +98,80 @@ const Choose = () => {
 		// document.body.style.overflow = isScrolling ? 'hidden' : 'auto';
 	}, [isScrolling]);
 
+	useEffect(() => {
+		const container = scrollContainer.current;
+		if (!container) return;
+
+		const handleCarouselScroll = () => {
+			// Check if the container is scrolled to the bottom.
+			// You can adjust the threshold (5px in this example) as needed.
+			setScrollLevel(container.scrollTop);
+		};
+
+		container.addEventListener('scroll', handleCarouselScroll);
+		return () => container.removeEventListener('scroll', handleCarouselScroll);
+	}, []);
+
 	return (
-		<section id="why" className="bg-[#f0f9ff] px-5 pt-10 pb-0 lg:py-20">
+		<section
+			id="why"
+			className="bg-[#f0f9ff] px-5 pt-10 pb-0 lg:py-20"
+			ref={ref}
+		>
 			<div className="max-w-[1300px] mx-auto">
 				<HeaderGradient title="Why choose us?" />
 				<div
 					className="mt-20 flex flex-col lg:flex-row items-center gap-10 max-h-[250px] lg:max-h-[500px]"
 					onWheel={handleWheel}
+					data-aos="fade-up"
 				>
 					<div className="flex-1">
 						<Image src={'/globe.svg'} width={500} height={500} alt="" />
 					</div>
-					<div className="flex-1 relative w-full h-[250px] lg:h-[500px] ">
+					<div className="flex-1">
 						<div
 							ref={carouselRef}
-							className="h-full max-h-[250px] lg:max-h-[500px] overflow-y-auto scrollbar-hide"
+							className="flex items-center gap-x-5 lg:gap-x-10 h-[250px] lg:h-[500px]"
 						>
-							{carousels.map(carousel => (
+							<div className="flex flex-col items-center">
+								<Image
+									src={
+										carousels[Math.round(scrollLevel / (isMobile ? 250 : 500))]
+											?.icon
+									}
+									width={100}
+									height={100}
+									alt=""
+								/>
 								<div
-									className={`flex-1 flex items-center gap-x-5 h-[250px] lg:h-[500px]`}
-									key={carousel.icon}
-								>
-									<Image src={carousel.icon} width={100} height={100} alt="" />
-									<div>
-										<h3 className="text-2xl lg:text-5xl font-semibold">
-											{carousel.title}
-										</h3>
-										<p className="text-lg lg:text-2xl mt-3">
-											{carousel.message}
-										</p>
+									className={`h-[150px] ${
+										scrollLevel >
+										(carousels.length - 2) * (isMobile ? 250 : 500)
+											? ''
+											: 'border-l-2 border-[#94A3B8]'
+									} flex -mt-2 -mb-20`}
+								></div>
+							</div>
+							<div
+								className="relative w-full h-full overflow-y-auto scrollbar-hide snap-y snap-mandatory scroll-smooth"
+								ref={scrollContainer}
+							>
+								{carousels.map(carousel => (
+									<div
+										key={carousel.icon}
+										className={`flex-1 flex items-center gap-x-5 h-[250px] lg:h-[500px] snap-start`}
+									>
+										<div>
+											<h3 className="text-2xl lg:text-5xl font-semibold">
+												{carousel.title}
+											</h3>
+											<p className="text-lg lg:text-2xl mt-3">
+												{carousel.message}
+											</p>
+										</div>
 									</div>
-								</div>
-							))}
+								))}
+							</div>
 						</div>
 					</div>
 				</div>
