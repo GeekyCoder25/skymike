@@ -154,8 +154,8 @@ const Hero: FC<{
 							</a>
 						))}
 					</ul>
-					<div className="lg:flex items-center gap-x-5">
-						<div className="hidden lg:block cursor-pointer relative">
+					<div className="hidden lg:flex items-center gap-x-5">
+						<div className="cursor-pointer relative">
 							<span
 								onClick={() => setShowQrCode(true)}
 								onMouseOver={() => setIsHovered(true)}
@@ -198,9 +198,7 @@ const Hero: FC<{
 						</div>
 						<button
 							onClick={() => setShowTradeModal(true)}
-							className={`bg-[#AD46FF] py-2 px-4 rounded-md text-white flex items-center gap-x-2 fixed lg:static bottom-2 right-5 z-30 ${
-								hash ? 'visible' : 'invisible lg:visible'
-							}`}
+							className={`bg-[#AD46FF] py-2 px-4 rounded-md text-white flex items-center gap-x-2 fixed lg:static bottom-12 right-5 z-30`}
 						>
 							<RocketIcon />
 							Trade now
@@ -208,7 +206,7 @@ const Hero: FC<{
 					</div>
 				</nav>
 				<div className="w-full flex-1 flex flex-col gap-y-10 justify-center items-center max-w-[800px] mx-auto mt-10 mb-0 lg:my-20 px-5 lg:px-10 text-center relative">
-					<div className="absolute z-20 top-0 left-0 w-full h-full animate-spin-slow lg:hidden">
+					<div className="absolute z-20 top-0 left-0 w-full h-full animate-spin-slow lg:hidden pointer-events-none">
 						<Image
 							width={100}
 							height={100}
@@ -217,7 +215,7 @@ const Hero: FC<{
 							className="absolute -top-10 left-5"
 						/>
 					</div>
-					<div className="absolute z-20 bottom-0 right-0 w-full h-full animate-spin-slow-reverse lg:hidden">
+					<div className="absolute z-20 bottom-0 right-0 w-full h-full animate-spin-slow-reverse lg:hidden pointer-events-none">
 						<Image
 							width={100}
 							height={100}
@@ -473,6 +471,15 @@ const Hero: FC<{
 					</div>
 				</div>
 			</section>
+			<button
+				onClick={() => setShowTradeModal(true)}
+				className={`bg-[#AD46FF] py-2 px-4 rounded-md text-white flex items-center gap-x-2 fixed lg:static bottom-5 right-5 z-30 ${
+					hash ? 'visible' : 'invisible lg:visible'
+				}`}
+			>
+				<RocketIcon />
+				Trade now
+			</button>
 		</>
 	);
 };

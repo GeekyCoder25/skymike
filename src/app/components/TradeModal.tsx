@@ -22,7 +22,7 @@ const TradeModal: FC<{
 		const amount = (form.elements.namedItem('amount') as HTMLSelectElement)
 			.value;
 		const currency = (form.elements.namedItem('currency') as HTMLSelectElement)
-			.value;
+			?.value;
 		const link = `https://wa.me/2349030444317?text=Hello Skymike, I want to trade ${
 			currency || '$'
 		}${amount} worth of ${selectedValue} `;
@@ -46,9 +46,15 @@ const TradeModal: FC<{
 			></div>
 
 			<form
-				className="bg-white w-[90%] max-w-[1000px] px-5 lg:px-36 py-20 z-10 rounded-xl"
+				className="bg-white w-[90%] max-w-[1000px] px-5 lg:px-36 py-20 z-10 rounded-xl relative"
 				onSubmit={handleContinue}
 			>
+				<span
+					className="absolute top-5 right-5 text-lg"
+					onClick={() => setShowTradeModal(false)}
+				>
+					<i className="fas fa-xmark"></i>
+				</span>
 				<div className="flex flex-col lg:flex-row gap-10">
 					<div
 						className={`${
@@ -78,8 +84,9 @@ const TradeModal: FC<{
 						<input
 							name="amount"
 							type="number"
-							className="border-[1px] lg:border-r-0 flex-1 min-h-14 outline-none pl-10 rounded-full lg:rounded-tr-none lg:rounded-br-none"
+							className="border-[1px] lg:border-r-0 flex-1 min-h-14 outline-none pl-5 rounded-full lg:rounded-tr-none lg:rounded-br-none"
 							required
+							placeholder="Enter Amount"
 						/>
 						<select
 							name="cryptoType"
@@ -112,7 +119,7 @@ const TradeModal: FC<{
 						<select
 							name="currency"
 							id="currency"
-							className="bg-primary border-[1px] border-primary outline-primary px-5 rounded-full text-white h-14 font-semibold lg:mr-5"
+							className="bg-primary border-[1px] border-primary outline-primary px-5 rounded-lg text-white h-14 font-semibold lg:mr-5"
 						>
 							<option value="$">USD $</option>
 							<option value="€">EURO €</option>
@@ -123,8 +130,9 @@ const TradeModal: FC<{
 						<input
 							name="amount"
 							type="number"
-							className="border-[1px] lg:border-r-0 flex-1 min-h-14 outline-none pl-10 rounded-full lg:rounded-tr-none lg:rounded-br-none"
+							className="border-[1px] lg:border-r-0 flex-1 min-h-14 outline-none pl-5 rounded-full lg:rounded-tr-none lg:rounded-br-none"
 							required
+							placeholder="Enter Amount"
 						/>
 						<select
 							name="cryptoType"
@@ -173,7 +181,7 @@ const TradeModal: FC<{
 						</select>
 					</div>
 				)}
-				<button className="bg-primary px-5 py-4 rounded-full text-white font-semibold hover:scale-105 transition">
+				<button className="bg-primary px-5 py-4 rounded-lg text-white font-semibold hover:scale-105 transition">
 					Complete trade
 				</button>
 			</form>

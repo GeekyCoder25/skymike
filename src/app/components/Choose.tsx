@@ -76,6 +76,23 @@ const Choose = ({ref}: {ref: RefObject<null>}) => {
 			carouselRef.current.scrollBy({left: e.deltaY, behavior: 'smooth'});
 		}
 	};
+	let startY: number;
+	const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+		startY = e.touches[0].clientY; // Store initial touch Y position
+	};
+
+	const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+		if (carouselRef.current) {
+			const deltaY = startY - e.touches[0].clientY; // Check movement difference
+
+			carouselRef.current.scrollBy({
+				left: deltaY, // Move horizontally based on vertical movement
+				behavior: 'smooth',
+			});
+
+			startY = e.touches[0].clientY; // Update start position
+		}
+	};
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -96,7 +113,12 @@ const Choose = ({ref}: {ref: RefObject<null>}) => {
 	}, [ref]);
 
 	return (
-		<div ref={container} onWheel={handleWheel}>
+		<div
+			ref={container}
+			onWheel={handleWheel}
+			onTouchMove={handleTouchMove}
+			onTouchStart={handleTouchStart}
+		>
 			<section
 				id="why"
 				className="bg-[#f0f9ff] px-5 pt-10 pb-0 lg:py-20"
