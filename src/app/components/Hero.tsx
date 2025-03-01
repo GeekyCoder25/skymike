@@ -117,7 +117,7 @@ const Hero: FC<{
 
 	return (
 		<>
-			<div className="bg-[url('/ellipse.svg')] animate-spin fixed top-0 right-0 bottom-0 left-0"></div>
+			<div className="bg-[url('/ellipse.svg')] animate-spin-medium fixed top-0 right-0 bottom-0 left-0 z-0 pointer-events-none"></div>
 			{showTradeModal && <TradeModal setShowTradeModal={setShowTradeModal} />}
 			<div
 				ref={refs.home}
@@ -207,40 +207,89 @@ const Hero: FC<{
 						</button>
 					</div>
 				</nav>
-				<div className="w-full flex-1 flex flex-col gap-y-10 justify-center items-center max-w-[800px] mx-auto mt-10 mb-0 lg:my-20 px-5 lg:px-10 text-center">
+				<div className="w-full flex-1 flex flex-col gap-y-10 justify-center items-center max-w-[800px] mx-auto mt-10 mb-0 lg:my-20 px-5 lg:px-10 text-center relative">
+					<div className="absolute z-20 top-0 left-0 w-full h-full animate-spin-slow lg:hidden">
+						<Image
+							width={100}
+							height={100}
+							src={'/usdt.svg'}
+							alt=""
+							className="absolute -top-10 left-5"
+						/>
+					</div>
+					<div className="absolute z-20 bottom-0 right-0 w-full h-full animate-spin-slow-reverse lg:hidden">
+						<Image
+							width={100}
+							height={100}
+							src={'/btc.svg'}
+							alt=""
+							className="absolute -bottom-5 right-5"
+						/>
+					</div>
 					<div className="bg-[#DBEAFE] px-3 py-4 rounded-full text-[#162456] text-sm lg:text-lg">
 						Skymike service is No 1 trading vendor in Nigeria
 					</div>
 					<h2 className="text-3xl lg:text-6xl" data-aos="fade-up">
-						<span className="hover:text-[#AD46FF] hover:scale-105 cursor-pointer inline-block transition duration-200">
+						<span
+							className="mobile-wave inline-block"
+							style={{animationDelay: '0s'}}
+						>
 							Trade
 						</span>{' '}
-						<span className="hover:text-[# ] hover:scale-105 cursor-pointer inline-block transition duration-200">
+						<span
+							className="mobile-wave inline-block"
+							style={{animationDelay: '1s'}}
+						>
 							Crypto
 						</span>{' '}
-						<span className="hover:text-[#AD46FF] hover:scale-105 cursor-pointer inline-block transition duration-200">
+						<span
+							className="mobile-wave inline-block"
+							style={{animationDelay: '2s'}}
+						>
 							&amp;
 						</span>{' '}
-						<span className="hover:text-[#AD46FF] hover:scale-105 cursor-pointer inline-block transition duration-200">
+						<span
+							className="mobile-wave inline-block"
+							style={{animationDelay: '3s'}}
+						>
 							Gift
 						</span>{' '}
-						<span className="hover:text-[#AD46FF] hover:scale-105 cursor-pointer inline-block transition duration-200">
+						<span
+							className="mobile-wave inline-block"
+							style={{animationDelay: '4s'}}
+						>
 							Cards
 						</span>{' '}
-						<span className="hover:text-[#AD46FF] hover:scale-105 cursor-pointer inline-block transition duration-200">
+						<span
+							className="mobile-wave inline-block"
+							style={{animationDelay: '5s'}}
+						>
 							at
 						</span>{' '}
-						<span className="hover:text-[#AD46FF] hover:scale-105 cursor-pointer inline-block transition duration-200">
+						<span
+							className="mobile-wave inline-block"
+							style={{animationDelay: '6s'}}
+						>
 							the
 						</span>{' '}
-						<span className="hover:text-[#AD46FF] hover:scale-105 cursor-pointer inline-block transition duration-200">
+						<span
+							className="mobile-wave inline-block"
+							style={{animationDelay: '7s'}}
+						>
 							Best
 						</span>{' '}
-						<span className="hover:text-[#AD46FF] hover:scale-105 cursor-pointer inline-block transition duration-200">
+						<span
+							className="mobile-wave inline-block"
+							style={{animationDelay: '8s'}}
+						>
 							Rates.
 						</span>
 						<br />
-						<span className="text-[#1C398E] hover:text-[#AD46FF] hover:scale-105 cursor-pointer inline-block transition duration-200">
+						<span
+							className="text-[#1C398E] mobile-wave inline-block"
+							data-aos="fade-up"
+							style={{animationDelay: '10s'}}
+						>
 							Fast &amp; Secure
 						</span>
 					</h2>
@@ -325,7 +374,7 @@ const Hero: FC<{
 							className="flex-1 flex justify-center items-center relative"
 							data-aos="fade-left"
 						>
-							<div className="max-w-[400px] overflow-x-hidden">
+							<div className="max-w-[400px] min-h-[200px] overflow-x-hidden">
 								<Image
 									width={300}
 									height={300}

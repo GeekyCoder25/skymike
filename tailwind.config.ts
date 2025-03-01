@@ -10,6 +10,7 @@ export default {
 		extend: {
 			animation: {
 				'spin-slow': 'spin 20s linear infinite',
+				'spin-medium': 'spin 7s linear infinite',
 				'spin-slow-reverse': 'reverse-spin 20s linear infinite',
 				'left-scroll': 'left-scroll 20s linear infinite',
 				'left-scroll-mobile': 'left-scroll 5s linear infinite',

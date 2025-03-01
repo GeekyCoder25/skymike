@@ -12,10 +12,30 @@ const Footer = () => {
 			style={{backgroundPosition: '100% 30%'}}
 		>
 			<div className="flex justify-end gap-x-5 max-w-[1300px] mx-auto px-5 pb-3">
-				<Link href={''}>WhatsApp</Link>
+				<Link
+					href="https://wa.me/2349030444317"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					WhatsApp
+				</Link>
 				<Link href={''}>Facebook</Link>
-				<Link href={''}>Instagram</Link>
-				<Link href={''}>Telegram</Link>
+				<Link
+					href={
+						'https://www.instagram.com/skymike_services?igsh=ODdkM2Rsa3FrOXZ0'
+					}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Instagram
+				</Link>
+				<Link
+					href="https://t.me/+2349030444317"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Telegram
+				</Link>
 			</div>
 			<div className="max-w-[1300px] mx-auto px-5 relative flex flex-col lg:flex-row lg:items-center gap-10 overflow-hidden border-y-[1px] border-y-[#A8A8A833] py-10 lg:py-20 ">
 				<div className="flex-1 flex flex-col gap-y-10">
@@ -43,18 +63,18 @@ const Footer = () => {
 						</Link>
 						<div className="flex flex-wrap gap-5">
 							<Link
-								href={'tel:+234 703 633 1520'}
+								href={'tel:+2349030444317'}
 								className="flex items-center gap-x-2"
 							>
 								<CallIcon />
-								+234 703 633 1520
+								+234 903 044 4317
 							</Link>
 							<Link
-								href={'sms:+234 703 633 1520'}
+								href={'sms:+2349030444317'}
 								className="flex items-center gap-x-2"
 							>
 								<ChatIcon />
-								+234 703 633 1520
+								+234 0903 044 4317
 							</Link>
 						</div>
 						<div className="flex">
@@ -65,7 +85,7 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-			<h2 className="bg-[#45556C]  bg-clip-text text-[300px] font-black text-transparent text-center h-72 -mt-10 bg-[url('/shade.svg')] ">
+			<h2 className="bg-[#45556C]  bg-clip-text text-[300px] font-black text-transparent text-center h-64 bg-[url('/shade.svg')] ">
 				Skymike
 			</h2>
 		</footer>

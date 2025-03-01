@@ -55,3 +55,19 @@ body {
 		transform: translateX(0%);
 	}
 }
+
+@keyframes colorWave {
+	0%,
+	100% {
+		color: inherit;
+		transform: scale(1);
+	}
+	50% {
+		color: #ad46ff;
+		transform: scale(1.05);
+	}
+}
+
+.mobile-wave {
+	animation: colorWave 10s infinite;
+}

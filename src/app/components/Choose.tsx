@@ -1,5 +1,5 @@
 'use client';
-import React, {RefObject, useEffect, useRef, useState} from 'react';
+import React, {RefObject, useEffect, useRef} from 'react';
 import HeaderGradient from './HeaderGradient';
 import Image from 'next/image';
 
@@ -40,125 +40,90 @@ const carousels: Carousel[] = [
 
 const Choose = ({ref}: {ref: RefObject<null>}) => {
 	const carouselRef = useRef<HTMLDivElement>(null);
-	const scrollContainer = useRef<HTMLDivElement>(null);
-	const [isScrolling, setIsScrolling] = useState(false);
-	const [scrollLevel, setScrollLevel] = useState(0);
-	const [isMobile, setIsMobile] = useState(false);
-
-	useEffect(() => {
-		setIsMobile(window.innerWidth < 1024);
-	}, []);
+	const container = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		const handleScroll = () => {
 			if (!carouselRef.current) return;
 
-			const {scrollTop, scrollHeight, clientHeight} = carouselRef.current;
-			if (scrollTop + clientHeight >= scrollHeight - 250 || scrollTop === 0) {
-				setIsScrolling(false);
+			const {scrollLeft, scrollWidth, clientWidth} = carouselRef.current;
+			if (scrollLeft + clientWidth >= scrollWidth || scrollLeft === 0) {
+				document.body.style.overflow = 'auto';
 			} else {
-				setIsScrolling(true);
 			}
 		};
-
-		const sectionObserver = new IntersectionObserver(
-			([entry]) => {
-				if (entry.isIntersecting) {
-					setIsScrolling(true);
-				} else {
-					setIsScrolling(false);
-				}
-			},
-			{threshold: 0.5}
-		);
 
 		const carouselElement = carouselRef.current;
 		if (carouselElement) {
 			carouselElement.addEventListener('scroll', handleScroll);
-			sectionObserver.observe(carouselElement);
 		}
 
 		return () => {
 			if (carouselElement) {
 				carouselElement.removeEventListener('scroll', handleScroll);
 			}
-			sectionObserver.disconnect();
 		};
 	}, []);
 
 	const handleWheel = (e: React.WheelEvent) => {
 		if (carouselRef.current) {
-			if (isScrolling) {
-			}
-			carouselRef.current.scrollBy({top: e.deltaY, behavior: 'auto'});
+			// document.body.style.overflow = 'hidden'; // Disable page scrolling
+
+			// if (isScrolling) {
+			// } else {
+			// 	document.body.style.overflow = 'auto';
+			// }
+			carouselRef.current.scrollBy({left: e.deltaY, behavior: 'smooth'});
 		}
 	};
 
 	useEffect(() => {
-		// document.body.style.overflow = isScrolling ? 'hidden' : 'auto';
-	}, [isScrolling]);
+		const observer = new IntersectionObserver(
+			entries => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						document.body.style.overflow = 'hidden'; // Disable page scrolling
+					} else {
+						document.body.style.overflow = 'auto'; // Disable page scrolling
+					}
+				});
+			},
+			{root: null, threshold: 1}
+		);
+		if (carouselRef.current) observer.observe(carouselRef.current);
 
-	useEffect(() => {
-		const container = scrollContainer.current;
-		if (!container) return;
-
-		const handleCarouselScroll = () => {
-			setScrollLevel(container.scrollTop);
-		};
-
-		container.addEventListener('scroll', handleCarouselScroll);
-		return () => container.removeEventListener('scroll', handleCarouselScroll);
-	}, []);
+		return () => observer.disconnect();
+	}, [ref]);
 
 	return (
-		<section
-			id="why"
-			className="bg-[#f0f9ff] px-5 pt-10 pb-0 lg:py-20"
-			ref={ref}
-		>
-			<div className="max-w-[1300px] mx-auto">
-				<HeaderGradient title="Why choose us?" />
-				<div
-					className="mt-20 flex flex-col lg:flex-row items-center gap-10 max-h-[250px] lg:max-h-[500px]"
-					onWheel={handleWheel}
-					data-aos="fade-up"
-				>
-					<div className="flex-1">
-						<Image src={'/globe.svg'} width={500} height={500} alt="" />
-					</div>
-					<div className="flex-1">
-						<div
-							ref={carouselRef}
-							className="flex items-center gap-x-5 lg:gap-x-10 h-[250px] lg:h-[500px] overflow-hidden"
-						>
-							<div className="flex flex-col items-center">
-								<Image
-									src={
-										carousels[Math.round(scrollLevel / (isMobile ? 250 : 500))]
-											?.icon
-									}
-									width={100}
-									height={100}
-									alt=""
-								/>
-								<div
-									className={`h-[150px] ${
-										scrollLevel >
-										(carousels.length - 2) * (isMobile ? 250 : 500)
-											? ''
-											: 'border-l-2 border-[#94A3B8]'
-									} flex -mt-2 -mb-20`}
-								></div>
-							</div>
+		<div ref={container} onWheel={handleWheel}>
+			<section
+				id="why"
+				className="bg-[#f0f9ff] px-5 pt-10 pb-0 lg:py-20"
+				ref={ref}
+			>
+				<div className="max-w-[1300px] mx-auto">
+					<HeaderGradient title="Why choose us?" />
+					<div className="mt-20 flex flex-col lg:flex-row items-center gap-x-10 max-w-full overflow-hidden">
+						<div className="flex-shrink-0 w-[500px] lg:w-[500px]">
+							<Image src={'/globe.svg'} width={500} height={500} alt="" />
+						</div>
+						<div className="relative w-full h-[250px] lg:h-[500px] overflow-hidden">
 							<div
-								className="relative w-full h-full overflow-y-auto scrollbar-hide snap-y snap-mandatory scroll-smooth"
-								ref={scrollContainer}
+								ref={carouselRef}
+								className="flex flex-row gap-x-20 h-full overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
 							>
 								{carousels.map(carousel => (
 									<div
+										className="flex flex-row items-center gap-x-5 min-w-[90vw] lg:min-w-[600px] snap-start"
 										key={carousel.icon}
-										className={`flex-1 flex items-center gap-x-5 h-[250px] lg:h-[500px] snap-start`}
 									>
+										<Image
+											src={carousel.icon}
+											width={100}
+											height={100}
+											alt=""
+										/>
 										<div>
 											<h3 className="text-2xl lg:text-5xl font-semibold">
 												{carousel.title}
@@ -173,9 +138,9 @@ const Choose = ({ref}: {ref: RefObject<null>}) => {
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className="bg-[url('/map.svg')] bg-cover bg-center h-[500px] lg:h-[300px] -mt-20"></div>
-		</section>
+			</section>
+			<div className="bg-[url('/map.svg')] bg-cover bg-center h-[500px] lg:h-[300px] -mt-10"></div>
+		</div>
 	);
 };
 

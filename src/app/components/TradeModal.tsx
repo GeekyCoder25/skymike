@@ -23,7 +23,7 @@ const TradeModal: FC<{
 			.value;
 		const currency = (form.elements.namedItem('currency') as HTMLSelectElement)
 			.value;
-		const link = `https://wa.me/2349073002599?text=Hello Skymike, I want to trade ${
+		const link = `https://wa.me/2349030444317?text=Hello Skymike, I want to trade ${
 			currency || '$'
 		}${amount} worth of ${selectedValue} `;
 
