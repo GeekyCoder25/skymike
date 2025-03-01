@@ -46,7 +46,7 @@ const TradeModal: FC<{
 			></div>
 
 			<form
-				className="bg-white w-[90%] max-w-[1000px] px-5 lg:px-36 py-20 z-10 rounded-xl relative"
+				className="bg-white w-[90%] max-w-[1000px] max-h-[70vh] px-5 lg:px-36 py-20 z-10 rounded-xl relative overflow-y-auto"
 				onSubmit={handleContinue}
 			>
 				<span
