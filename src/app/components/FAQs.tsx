@@ -18,7 +18,7 @@ const faqs = [
 	{
 		question: 'How Do I Start Trading?',
 		answer:
-			'To Start Trading with us, click on the "TRADE" button, select what you want to buy or sell, input your details, proceed, and click the "TRADE" button.',
+			'To Start Trading with us, click on the "TRADE NOW" button, select what you want to buy or sell, input your details, proceed, and click the "TRADE" button.',
 	},
 	{
 		question: 'How Long Before I Get Paid?',

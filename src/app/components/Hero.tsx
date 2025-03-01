@@ -125,9 +125,9 @@ const Hero: FC<{
 				className="bg-[url('/Bg.svg')] bg-[#f0f9ff] bg-repeat bg-center h-[900px] lg:h-[1200px] overflow-hidden flex flex-col"
 			>
 				<nav
-					className={`flex justify-center lg:justify-between items-center px-5 lg:px-10 transition-all duration-300 ${
+					className={`flex justify-center lg:justify-between items-center px-5 lg:px-10 transition-all duration-300 z-30 ${
 						scrolled
-							? 'bg-[#f0f9ff] shadow-md py-3 fixed top-0 left-0 right-0 z-30'
+							? 'bg-[#f0f9ff] shadow-md py-3 lg:fixed top-0 left-0 right-0'
 							: 'bg-transparent py-10'
 					}`}
 				>

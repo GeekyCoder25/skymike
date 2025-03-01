@@ -30,8 +30,10 @@ export default function Home() {
 				refs={sectionRefs}
 				showTradeModal={showTradeModal}
 				setShowTradeModal={setShowTradeModal}
+				/>
+			<Services ref={sectionRefs.services} 
+				setShowTradeModal={setShowTradeModal}
 			/>
-			<Services ref={sectionRefs.services} />
 			<FAQs ref={sectionRefs.faqs} />
 			<Choose ref={sectionRefs.choose} />
 			<Testimonials />

@@ -1,9 +1,15 @@
-import React, {RefObject} from 'react';
+import React, {Dispatch, FC, RefObject, SetStateAction} from 'react';
 import HeaderGradient from './HeaderGradient';
 import RocketIcon from '../assets/rocket';
 import Image from 'next/image';
 
-const Services = ({ref}: {ref: RefObject<null>}) => {
+interface ServicesProps {
+	ref: RefObject<null>;
+	setShowTradeModal: Dispatch<SetStateAction<boolean>>;
+}
+
+const Services: FC<ServicesProps> = props => {
+	const {ref, setShowTradeModal} = props;
 	return (
 		<section id="services" className="bg-[#f0f9ff] px-5" ref={ref}>
 			<section className="py-10 lg:py-36 max-w-[1300px] mx-auto">
@@ -22,7 +28,8 @@ const Services = ({ref}: {ref: RefObject<null>}) => {
 							the best rates. Secure and fast transactions guaranteed.
 						</p>
 						<div className="flex">
-							<button className="bg-[#AD46FF] py-2 px-4 rounded-md text-white flex items-center gap-x-2">
+							<button className="bg-[#AD46FF] py-2 px-4 rounded-md text-white flex items-center gap-x-2"
+								onClick={()=> setShowTradeModal(true)}>
 								<RocketIcon />
 								Trade now
 							</button>
@@ -47,7 +54,8 @@ const Services = ({ref}: {ref: RefObject<null>}) => {
 							value with a smooth and hassle-free process.
 						</p>
 						<div className="flex">
-							<button className="bg-[#AD46FF] py-2 px-4 rounded-md text-white flex items-center gap-x-2">
+							<button className="bg-[#AD46FF] py-2 px-4 rounded-md text-white flex items-center gap-x-2"
+							onClick={()=> setShowTradeModal(true)}>
 								<RocketIcon />
 								Trade now
 							</button>

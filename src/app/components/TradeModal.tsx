@@ -46,10 +46,10 @@ const TradeModal: FC<{
 			></div>
 
 			<form
-				className="bg-white w-[90%] max-w-[1000px] px-36 py-20 z-10 rounded-xl"
+				className="bg-white w-[90%] max-w-[1000px] px-5 lg:px-36 py-20 z-10 rounded-xl"
 				onSubmit={handleContinue}
 			>
-				<div className="flex gap-x-10">
+				<div className="flex flex-col lg:flex-row gap-10">
 					<div
 						className={`${
 							activeTab === 'crypto' ? 'bg-primary text-white' : ''
@@ -74,11 +74,11 @@ const TradeModal: FC<{
 					</div>
 				</div>
 				{activeTab === 'crypto' && (
-					<div className="my-10 flex">
+					<div className="my-10 flex flex-col lg:flex-row gap-y-5">
 						<input
 							name="amount"
 							type="number"
-							className="border-[1px] border-r-0 flex-1 h-14 outline-none pl-10 rounded-tl-full rounded-bl-full"
+							className="border-[1px] lg:border-r-0 flex-1 min-h-14 outline-none pl-10 rounded-full lg:rounded-tr-none lg:rounded-br-none"
 							required
 						/>
 						<select
@@ -108,11 +108,11 @@ const TradeModal: FC<{
 					</div>
 				)}
 				{activeTab === 'giftcard' && (
-					<div className="my-10 flex">
+					<div className="my-10 flex flex-col lg:flex-row gap-y-5">
 						<select
 							name="currency"
 							id="currency"
-							className="bg-primary border-[1px] border-primary outline-primary px-5 rounded-full text-white h-14 font-semibold mr-5"
+							className="bg-primary border-[1px] border-primary outline-primary px-5 rounded-full text-white h-14 font-semibold lg:mr-5"
 						>
 							<option value="$">USD $</option>
 							<option value="€">EURO €</option>
@@ -123,7 +123,7 @@ const TradeModal: FC<{
 						<input
 							name="amount"
 							type="number"
-							className="border-[1px] border-r-0 flex-1 h-14 outline-none pl-10 rounded-tl-full rounded-bl-full"
+							className="border-[1px] lg:border-r-0 flex-1 min-h-14 outline-none pl-10 rounded-full lg:rounded-tr-none lg:rounded-br-none"
 							required
 						/>
 						<select
