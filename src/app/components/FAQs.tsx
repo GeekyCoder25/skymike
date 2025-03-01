@@ -9,24 +9,36 @@ const faqs = [
 			'CrossGate is a secure cross-chain asset transfer platform that enables users to move their digital assets seamlessly between different blockchain networks.',
 	},
 	{
+		question: 'Why Should I Trust SkyMikeServices?',
+		answer:
+			'We are Reliable\n' +
+			'* Sell your cards quickly and get your money instantly.\n' +
+			'* We accept crypto anywhere & anywhere.',
+	},
+	{
 		question: 'How Do I Start Trading?',
-		answer: '',
+		answer:
+			'To Start Trading with us, click on the "TRADE" button, select what you want to buy or sell, input your details, proceed, and click the "TRADE" button.',
 	},
 	{
 		question: 'How Long Before I Get Paid?',
-		answer: '',
+		answer:
+			'Both naira and crypto withdrawals on SkyMikeServices are instant. We believe getting your payment as soon as you want is important to you, and important to us as well.',
 	},
 	{
 		question: 'What Gift Cards Do You Buy?',
-		answer: '',
+		answer:
+			'We buy almost all gift cards ranging from Itunes, Steam, Amazon, Google Play, Ebay, America Express Gold, Apple Store, Sephora, Vanilla, Visa, Nordstrom, etc.',
 	},
 	{
 		question: 'What Cryptocurrencies Do You Buy?',
-		answer: '',
+		answer:
+			'We buy almost all cryptocurrencies, ranging from Bitcoin, USDT, Ethereum, Binance Coin, Dogecoin, Litecoin, Ripple, etc.',
 	},
 	{
 		question: 'What Is The Limit of Coin/Giftcard You Buy?',
-		answer: '',
+		answer:
+			'We accept any quantity of coin or gift cards. No minimum or maximum.',
 	},
 ];
 

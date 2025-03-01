@@ -1,8 +1,16 @@
 'use client';
 import Image from 'next/image';
-import React, {FC, RefObject, useEffect, useState} from 'react';
+import React, {
+	Dispatch,
+	FC,
+	RefObject,
+	SetStateAction,
+	useEffect,
+	useState,
+} from 'react';
 import ClipPathIcon from '../assets/clip-path';
 import RocketIcon from '../assets/rocket';
+import TradeModal from './TradeModal';
 
 const Hero: FC<{
 	refs: {
@@ -13,7 +21,10 @@ const Hero: FC<{
 		faqs: RefObject<null>;
 		choose: RefObject<null>;
 	};
-}> = ({refs}) => {
+	showTradeModal: boolean;
+	setShowTradeModal: Dispatch<SetStateAction<boolean>>;
+}> = props => {
+	const {refs, showTradeModal, setShowTradeModal} = props;
 	const [scrolled, setScrolled] = useState(false);
 	const [hash, setHash] = useState('');
 	const [showQrCode, setShowQrCode] = useState(false);
@@ -104,11 +115,10 @@ const Hero: FC<{
 		return () => observer.disconnect();
 	}, [refs]);
 
-	const link =
-		'https://wa.me/2349073002599?text=Hello Skymike I would like to buy 50 btc';
-
 	return (
 		<>
+			<div className="bg-[url('/ellipse.svg')] animate-spin fixed top-0 right-0 bottom-0 left-0"></div>
+			{showTradeModal && <TradeModal setShowTradeModal={setShowTradeModal} />}
 			<div
 				ref={refs.home}
 				id="home"
@@ -186,17 +196,15 @@ const Hero: FC<{
 								</div>
 							)}
 						</div>
-						<a
-							href={link}
-							target="_blank"
-							rel="noopener noreferrer"
+						<button
+							onClick={() => setShowTradeModal(true)}
 							className={`bg-[#AD46FF] py-2 px-4 rounded-md text-white flex items-center gap-x-2 fixed lg:static bottom-2 right-5 z-30 ${
 								hash ? 'visible' : 'invisible lg:visible'
 							}`}
 						>
 							<RocketIcon />
 							Trade now
-						</a>
+						</button>
 					</div>
 				</nav>
 				<div className="w-full flex-1 flex flex-col gap-y-10 justify-center items-center max-w-[800px] mx-auto mt-10 mb-0 lg:my-20 px-5 lg:px-10 text-center">
@@ -207,7 +215,7 @@ const Hero: FC<{
 						<span className="hover:text-[#AD46FF] hover:scale-105 cursor-pointer inline-block transition duration-200">
 							Trade
 						</span>{' '}
-						<span className="hover:text-[#AD46FF] hover:scale-105 cursor-pointer inline-block transition duration-200">
+						<span className="hover:text-[# ] hover:scale-105 cursor-pointer inline-block transition duration-200">
 							Crypto
 						</span>{' '}
 						<span className="hover:text-[#AD46FF] hover:scale-105 cursor-pointer inline-block transition duration-200">
@@ -241,15 +249,13 @@ const Hero: FC<{
 						Secure, and Hassle-Free!
 					</p>{' '}
 					<div data-aos="fade-up">
-						<a
-							href={link}
-							target="_blank"
-							rel="noopener noreferrer"
+						<button
+							onClick={() => setShowTradeModal(true)}
 							className="bg-[#AD46FF] py-2 px-4 rounded-md text-white flex items-center gap-x-2 hover:scale-105 transition duration-300"
 						>
 							<RocketIcon />
 							Trade now
-						</a>
+						</button>
 					</div>
 				</div>
 				<div
@@ -262,7 +268,7 @@ const Hero: FC<{
 					className="bg-[url('/section2-bg.svg')] bg-cover bg-center max-w-[1300px] mx-auto p-10 lg:px-20 lg:py-10 pb-5 lg:pb-3 text-white rounded-xl -mt-28 z-10 sticky text-xl lg:text-5xl"
 					data-aos="fade-up"
 				>
-					<p className="max-w-[600px]">
+					<p className="max-w-[600px]" data-aos="fade-right">
 						We thrive in delivering on our word to provide seamless services to
 						you!
 					</p>
@@ -273,10 +279,11 @@ const Hero: FC<{
 							src={'/Illustrations.svg'}
 							alt=""
 							className="flex-1"
+							data-aos="fade-up"
 						/>
 						<div className="flex-1 flex flex-col gap-y-10">
 							<div className="h-5 lg:h-56 lg:border-l-2 mx-20"></div>
-							<p>
+							<p data-aos="fade-left">
 								Our Love Language is
 								<br />
 								<span className="text-[#DAB2FF] text-3xl lg:text-5xl">

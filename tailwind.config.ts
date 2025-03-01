@@ -16,10 +16,7 @@ export default {
 				'right-scroll': 'right-scroll 20s linear infinite',
 				'right-scroll-mobile': 'right-scroll 5s linear infinite',
 			},
-			colors: {
-				background: 'var(--background)',
-				foreground: 'var(--foreground)',
-			},
+			colors: {primary: '#AD46FF'},
 		},
 	},
 	plugins: [],

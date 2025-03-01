@@ -103,8 +103,6 @@ const Choose = ({ref}: {ref: RefObject<null>}) => {
 		if (!container) return;
 
 		const handleCarouselScroll = () => {
-			// Check if the container is scrolled to the bottom.
-			// You can adjust the threshold (5px in this example) as needed.
 			setScrollLevel(container.scrollTop);
 		};
 
@@ -131,7 +129,7 @@ const Choose = ({ref}: {ref: RefObject<null>}) => {
 					<div className="flex-1">
 						<div
 							ref={carouselRef}
-							className="flex items-center gap-x-5 lg:gap-x-10 h-[250px] lg:h-[500px]"
+							className="flex items-center gap-x-5 lg:gap-x-10 h-[250px] lg:h-[500px] overflow-hidden"
 						>
 							<div className="flex flex-col items-center">
 								<Image
