@@ -4,11 +4,6 @@ import HeaderGradient from './HeaderGradient';
 
 const faqs = [
 	{
-		question: 'What is CrossGate?',
-		answer:
-			'CrossGate is a secure cross-chain asset transfer platform that enables users to move their digital assets seamlessly between different blockchain networks.',
-	},
-	{
 		question: 'Why Should I Trust SkyMikeServices?',
 		answer:
 			'We are Reliable\n' +
