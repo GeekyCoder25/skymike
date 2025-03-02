@@ -473,7 +473,7 @@ const Hero: FC<{
 			</section>
 			<button
 				onClick={() => setShowTradeModal(true)}
-				className={`bg-[#AD46FF] py-2 px-4 rounded-md text-white flex items-center gap-x-2 fixed lg:static bottom-5 right-5 z-30 ${
+				className={`bg-[#AD46FF] py-2 px-4 rounded-md text-white flex items-center gap-x-2 fixed lg:hidden bottom-5 right-5 z-30 ${
 					hash ? 'visible' : 'invisible lg:visible'
 				}`}
 			>
