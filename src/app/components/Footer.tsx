@@ -19,7 +19,9 @@ const Footer = () => {
 				>
 					WhatsApp
 				</Link>
-				<Link href={''}>Facebook</Link>
+				<Link href="https://www.facebook.com/share/1YELmcB7BT/?mibextid=wwXIfr"
+					target="_blank"
+					rel="noopener noreferrer">Facebook</Link>
 				<Link
 					href={
 						'https://www.instagram.com/skymike_services?igsh=ODdkM2Rsa3FrOXZ0'
