@@ -6,9 +6,9 @@ const faqs = [
 	{
 		question: 'Why Should I Trust SkyMikeServices?',
 		answer:
-			'We are Reliable\n' +
-			'* Sell your cards quickly and get your money instantly.\n' +
-			'* We accept crypto anywhere & anywhere.',
+			'We are Reliable.\n' +
+			'Sell your cards quickly and get your money instantly.\n' +
+			'We accept crypto anywhere & anywhere.',
 	},
 	{
 		question: 'How Do I Start Trading?',
