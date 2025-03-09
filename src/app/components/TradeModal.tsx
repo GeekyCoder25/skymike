@@ -73,7 +73,11 @@ const TradeModal: FC<{
 						onClick={() => setActiveTab('giftcard')}
 					>
 						<span className="w-[100px] h-[100px] flex justify-center items-center">
-							<i className="fas fa-gift text-6xl text-[#b87f3e]"></i>
+							<i
+								className={`fas fa-gift text-6xl ${
+									activeTab === 'giftcard' ? 'text-white' : 'text-[#b87f3e]'
+								}`}
+							></i>
 						</span>
 
 						<p className="font-semibold">Exchange Giftcards</p>
@@ -88,30 +92,35 @@ const TradeModal: FC<{
 							required
 							placeholder="Enter Amount"
 						/>
-						<select
-							name="cryptoType"
-							id="cryptoType"
-							className="bg-primary border-[1px] border-primary outline-primary px-5 rounded-full text-white h-14 font-semibold"
-						>
-							<option value="Bitcoin" className="bg-primary">
-								$ Worth of BTC
-							</option>
-							<option value="USDT" className="bg-primary">
-								$ Worth of USDT
-							</option>
-							<option value="Ethereum" className="bg-primary">
-								$ Worth of ETH
-							</option>
-							<option value="LTC" className="bg-primary">
-								$ Worth of LTC
-							</option>
-							<option value="Eipple" className="bg-primary">
-								$ Worth of Ripple
-							</option>
-							<option value="Doge" className="bg-primary">
-								$ Worth of Doge
-							</option>
-						</select>
+						<div className="relative">
+							<span className="absolute right-4 top-4">
+								<i className="fas fa-chevron-down text-white"></i>
+							</span>
+							<select
+								name="cryptoType"
+								id="cryptoType"
+								className="bg-primary border-[1px] border-primary outline-primary px-5 rounded-full text-white h-14 font-semibold appearance-none"
+							>
+								<option value="Bitcoin" className="bg-primary">
+									$ Worth of BTC
+								</option>
+								<option value="USDT" className="bg-primary">
+									$ Worth of USDT
+								</option>
+								<option value="Ethereum" className="bg-primary">
+									$ Worth of ETH
+								</option>
+								<option value="LTC" className="bg-primary">
+									$ Worth of LTC
+								</option>
+								<option value="Eipple" className="bg-primary">
+									$ Worth of Ripple
+								</option>
+								<option value="Doge" className="bg-primary">
+									$ Worth of Doge
+								</option>
+							</select>
+						</div>
 					</div>
 				)}
 				{activeTab === 'giftcard' && (
@@ -134,51 +143,56 @@ const TradeModal: FC<{
 							required
 							placeholder="Enter Amount"
 						/>
-						<select
-							name="cryptoType"
-							id="cryptoType"
-							className="bg-primary border-[1px] border-primary outline-primary px-5 rounded-full text-white h-14 font-semibold"
-						>
-							<option value="itunes" className="bg-primary">
-								Itunes Giftcards
-							</option>
-							<option value="steam-wallet" className="bg-primary">
-								Steam Wallet Giftcards
-							</option>
-							<option value="amazon" className="bg-primary">
-								Amazon Giftcards
-							</option>
-							<option value="google-play" className="bg-primary">
-								Google Play Giftcards
-							</option>
-							<option value="ebay" className="bg-primary">
-								Ebay Giftcards
-							</option>
-							<option value="american-express-gold" className="bg-primary">
-								America Express Gold Giftcards
-							</option>
-							<option value="apple-store" className="bg-primary">
-								Apple Store Giftcards
-							</option>
-							<option value="sephora" className="bg-primary">
-								Sephora Giftcards
-							</option>
-							<option value="vanilla" className="bg-primary">
-								Vanilla Giftcards
-							</option>
-							<option value="visa" className="bg-primary">
-								Visa Giftcards
-							</option>
-							<option value="nordstrom" className="bg-primary">
-								Nordstrom Giftcards
-							</option>
-							<option value="razer-gold" className="bg-primary">
-								Razer Gold Giftcards
-							</option>
-							<option value="nike" className="bg-primary">
-								Nike Giftcards
-							</option>
-						</select>
+						<div className="relative">
+							<span className="absolute right-4 top-4">
+								<i className="fas fa-chevron-down text-white"></i>
+							</span>
+							<select
+								name="cryptoType"
+								id="cryptoType"
+								className="bg-primary border-[1px] border-primary outline-primary px-5 rounded-full text-white h-14 font-semibold appearance-none"
+							>
+								<option value="itunes" className="bg-primary">
+									Itunes Giftcards
+								</option>
+								<option value="steam-wallet" className="bg-primary">
+									Steam Wallet Giftcards
+								</option>
+								<option value="amazon" className="bg-primary">
+									Amazon Giftcards
+								</option>
+								<option value="google-play" className="bg-primary">
+									Google Play Giftcards
+								</option>
+								<option value="ebay" className="bg-primary">
+									Ebay Giftcards
+								</option>
+								<option value="american-express-gold" className="bg-primary">
+									America Express Gold Giftcards
+								</option>
+								<option value="apple-store" className="bg-primary">
+									Apple Store Giftcards
+								</option>
+								<option value="sephora" className="bg-primary">
+									Sephora Giftcards
+								</option>
+								<option value="vanilla" className="bg-primary">
+									Vanilla Giftcards
+								</option>
+								<option value="visa" className="bg-primary">
+									Visa Giftcards
+								</option>
+								<option value="nordstrom" className="bg-primary">
+									Nordstrom Giftcards
+								</option>
+								<option value="razer-gold" className="bg-primary">
+									Razer Gold Giftcards
+								</option>
+								<option value="nike" className="bg-primary">
+									Nike Giftcards
+								</option>
+							</select>
+						</div>
 					</div>
 				)}
 				<button className="bg-primary px-5 py-4 rounded-lg text-white font-semibold hover:scale-105 transition">

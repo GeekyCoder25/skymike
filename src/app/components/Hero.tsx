@@ -117,7 +117,7 @@ const Hero: FC<{
 
 	return (
 		<>
-			<div className="bg-[url('/ellipse.svg')] animate-spin-medium fixed top-0 right-0 bottom-0 left-0 z-0 pointer-events-none"></div>
+			<div className="bg-[url('/ellipse.svg')] animate-slide fixed top-0 right-0 bottom-0 left-0 z-0 pointer-events-none"></div>
 			{showTradeModal && <TradeModal setShowTradeModal={setShowTradeModal} />}
 			<div
 				ref={refs.home}
@@ -206,6 +206,26 @@ const Hero: FC<{
 					</div>
 				</nav>
 				<div className="w-full flex-1 flex flex-col gap-y-10 justify-center items-center max-w-[800px] mx-auto mt-10 mb-0 lg:my-20 px-5 lg:px-10 text-center relative">
+					<div className="absolute -top-10 lg:top-0 left-5 flex flex-col gap-4 pointer-events-none">
+						<div className="bg-yellow-400 text-black px-3 py-1 rounded-full shadow-lg transform -rotate-6 animate-bounce">
+							Fast Speed
+						</div>
+					</div>
+					<div className="absolute -top-10 lg:top-0 right-5 flex flex-col gap-4 pointer-events-none">
+						<div className="bg-green-400 text-black px-3 py-1 rounded-full shadow-lg transform rotate-3 animate-pulse">
+							Reliable
+						</div>
+					</div>
+					<div className="absolute bottom-10 left-5 lg:-left-10 flex flex-col gap-4 pointer-events-none">
+						<div className="bg-blue-400 text-white px-3 py-1 rounded-full shadow-lg transform rotate-2 animate-pulse">
+							Secure
+						</div>
+					</div>
+					<div className="absolute bottom-10 right-5 lg:-right-10 flex flex-col gap-4 pointer-events-none">
+						<div className="bg-purple-400 text-white px-3 py-1 rounded-full shadow-lg transform -rotate-2 animate-bounce">
+							Hassle-Free
+						</div>
+					</div>
 					<div className="absolute z-20 top-0 left-0 w-full h-full animate-spin-slow lg:hidden pointer-events-none">
 						<Image
 							width={100}
@@ -225,9 +245,12 @@ const Hero: FC<{
 						/>
 					</div>
 					<div className="bg-[#DBEAFE] px-3 py-4 rounded-full text-[#162456] text-sm lg:text-lg">
-						Skymike service is No 1 trading vendor in Nigeria
+						Skymike service is No 1 trading vendor
 					</div>
-					<h2 className="text-3xl lg:text-6xl" data-aos="fade-up">
+					<h2
+						className="text-3xl lg:text-6xl font-semibold lg:font-normal"
+						data-aos="fade-up"
+					>
 						<span
 							className="mobile-wave inline-block"
 							style={{animationDelay: '0s'}}

@@ -8,7 +8,15 @@ export default {
 	],
 	theme: {
 		extend: {
+			keyframes: {
+				slideRightToLeft: {
+					'0%': {transform: 'translateX(100%)'},
+					'50%': {transform: 'translateX(-150%)'},
+					'100%': {transform: 'translateX(100%)'},
+				},
+			},
 			animation: {
+				slide: 'slideRightToLeft 20s linear infinite',
 				'spin-slow': 'spin 20s linear infinite',
 				'spin-medium': 'spin 7s linear infinite',
 				'spin-slow-reverse': 'reverse-spin 20s linear infinite',
