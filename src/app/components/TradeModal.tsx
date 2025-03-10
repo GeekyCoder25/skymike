@@ -64,7 +64,7 @@ const TradeModal: FC<{
 					>
 						<Image src={'/bitcoin.svg'} width={100} height={100} alt="" />
 
-						<p className="font-semibold">Exchange Crypto</p>
+						<p className="font-semibold text-center">Exchange Crypto</p>
 					</div>
 					<div
 						className={`${
@@ -80,7 +80,7 @@ const TradeModal: FC<{
 							></i>
 						</span>
 
-						<p className="font-semibold">Exchange Giftcards</p>
+						<p className="font-semibold text-center">Exchange Giftcards</p>
 					</div>
 				</div>
 				{activeTab === 'crypto' && (
@@ -99,7 +99,7 @@ const TradeModal: FC<{
 							<select
 								name="cryptoType"
 								id="cryptoType"
-								className="bg-primary border-[1px] border-primary outline-primary px-5 rounded-full text-white h-14 font-semibold appearance-none"
+								className="bg-primary border-[1px] border-primary outline-primary px-5 pr-10 rounded-full text-white h-14 font-semibold appearance-none"
 							>
 								<option value="Bitcoin" className="bg-primary">
 									$ Worth of BTC
@@ -125,17 +125,22 @@ const TradeModal: FC<{
 				)}
 				{activeTab === 'giftcard' && (
 					<div className="my-10 flex flex-col lg:flex-row gap-y-5">
-						<select
-							name="currency"
-							id="currency"
-							className="bg-primary border-[1px] border-primary outline-primary px-5 rounded-lg text-white h-14 font-semibold lg:mr-5"
-						>
-							<option value="$">USD $</option>
-							<option value="€">EURO €</option>
-							<option value="£">POUNDS £</option>
-							<option value="A$">AUD A$</option>
-							<option value="CA$">CAD CA$</option>
-						</select>
+						<div className="relative lg:mr-5">
+							<span className="absolute right-4 top-4">
+								<i className="fas fa-chevron-down text-white"></i>
+							</span>
+							<select
+								name="currency"
+								id="currency"
+								className="bg-primary border-[1px] border-primary outline-primary px-5 pr-10 rounded-lg text-white h-14 font-semibold appearance-none w-full"
+							>
+								<option value="$">USD $</option>
+								<option value="€">EURO €</option>
+								<option value="£">POUNDS £</option>
+								<option value="A$">AUD A$</option>
+								<option value="CA$">CAD CA$</option>
+							</select>
+						</div>
 						<input
 							name="amount"
 							type="number"
@@ -150,7 +155,7 @@ const TradeModal: FC<{
 							<select
 								name="cryptoType"
 								id="cryptoType"
-								className="bg-primary border-[1px] border-primary outline-primary px-5 rounded-full text-white h-14 font-semibold appearance-none"
+								className="bg-primary border-[1px] border-primary outline-primary px-5 pr-10 rounded-full text-white h-14 font-semibold appearance-none"
 							>
 								<option value="itunes" className="bg-primary">
 									Itunes Giftcards

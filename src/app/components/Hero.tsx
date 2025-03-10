@@ -122,7 +122,7 @@ const Hero: FC<{
 			<div
 				ref={refs.home}
 				id="home"
-				className="bg-[url('/Bg.svg')] bg-[#f0f9ff] bg-repeat bg-center h-[900px] lg:h-[1200px] overflow-hidden flex flex-col"
+				className="bg-[url('/Bg.png')] bg-[#f0f9ff] bg-repeat bg-center h-[900px] lg:h-[1200px] overflow-hidden flex flex-col"
 			>
 				<nav
 					className={`flex justify-center lg:justify-between items-center px-5 lg:px-10 transition-all duration-300 z-30 ${

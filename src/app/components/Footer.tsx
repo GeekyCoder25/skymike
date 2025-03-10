@@ -19,9 +19,13 @@ const Footer = () => {
 				>
 					WhatsApp
 				</Link>
-				<Link href="https://www.facebook.com/share/1YELmcB7BT/?mibextid=wwXIfr"
+				<Link
+					href="https://www.facebook.com/share/1YELmcB7BT/?mibextid=wwXIfr"
 					target="_blank"
-					rel="noopener noreferrer">Facebook</Link>
+					rel="noopener noreferrer"
+				>
+					Facebook
+				</Link>
 				<Link
 					href={
 						'https://www.instagram.com/skymike_services?igsh=ODdkM2Rsa3FrOXZ0'
@@ -86,6 +90,14 @@ const Footer = () => {
 						</div>
 					</div>
 				</div>
+			</div>
+			<div className="flex justify-center">
+				<button
+					className="mt-10 text-center underline"
+					onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+				>
+					Back to Top
+				</button>
 			</div>
 			<h2 className="bg-[#45556C]  bg-clip-text text-[300px] font-black text-transparent text-center h-64 bg-[url('/shade.svg')] ">
 				Skymike

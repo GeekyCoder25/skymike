@@ -58,7 +58,7 @@ const Testimonials = () => {
 					))}
 				</div>
 				<div className="animate-right-scroll-mobile lg:animate-right-scroll flex gap-x-10 lg:gap-x-10 mt-20">
-					{[1, 2, 3, 4, 5, 6].map(index => (
+					{[1, 2, 3, 4, 5, 6, 7, 8].map(index => (
 						<div
 							key={index}
 							className={`${
